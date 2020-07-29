@@ -1,6 +1,16 @@
-
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8', 'root', '');
+    try {
+        // On se connecte à MySQL
+        $bdd = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8', 'root', '');
+    } catch (Exception $e) {
+        // En cas d'erreur, on affiche un message et on arrête tout
+        die('Erreur : ' . $e->getMessage());
+    }
+
+// Si tout va bien, on peut continuer
+
+// On récupère tout le contenu de la table
+$reponse = $bdd->query('SELECT * FROM `showtypes`');
 ?>
 
 <!DOCTYPE html>
@@ -8,17 +18,15 @@ $bdd = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8', 'root', '');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PDO part1 exo2</title>
 </head>
 <body>
     <?php
-    
-    $reponse = $bdd->query('SELECT * FROM `showtypes`');
     while($donnees = $reponse->fetch()){
-        echo $donnees['type'] . '<br>';
+    ?>
+        <p><?=$donnees['type']?></p>
+    <?php
     };
-
-    
     ?>
 </body>
 </html>
