@@ -1,4 +1,3 @@
-
 <?php
 try {
     // On se connecte à MySQL
@@ -16,22 +15,25 @@ $reponse = $bdd->query('SELECT * FROM `clients` WHERE `lastName` LIKE \'M%\'ORDE
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDO part1 exo5</title>
 </head>
+
 <body>
     <?php
-    while($donnees = $reponse->fetch()){
+    while ($donnees = $reponse->fetch()) {
     ?>
         <p>
-            <b>Nom</b> : <?=$donnees['lastName']?><br>
-            <b>Prenom</b> : <?=$donnees['firstName']?>
+            <b>Nom</b> : <?= $donnees['lastName'] ?><br>
+            <b>Prenom</b> : <?= $donnees['firstName'] ?>
         </p>
 
     <?php
     };
     ?>
 </body>
+
 </html>

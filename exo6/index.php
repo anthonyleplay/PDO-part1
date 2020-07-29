@@ -15,22 +15,23 @@ $reponse = $bdd->query('SELECT * FROM `shows` ORDER BY `title`');
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDO part1 exo6</title>
 </head>
+
 <body>
     <?php
-    while($donnees = $reponse->fetch()){
+    while ($donnees = $reponse->fetch()) {
     ?>
         <p>
-            <i><?=$donnees['title']?></i> par <i><?=$donnees['performer']?></i>, le <i><?=$donnees['date']?></i> à <i><?=$donnees['startTime']?>
+            <i><?= $donnees['title'] ?></i> par <i><?= $donnees['performer'] ?></i>, le <i><?= $donnees['date'] ?></i> à <i><?= $donnees['startTime'] ?>
         </p>
     <?php
     };
     ?>
-    
-    ?>
 </body>
+
 </html>

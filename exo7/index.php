@@ -27,16 +27,16 @@ $reponse = $bdd->query('SELECT * FROM `clients` ');
     while ($donnees = $reponse->fetch()) {
     ?>
         <p>
-            <b>Nom</b> : <?=$donnees['lastName']?><br>
-            <b>Prenom</b> : <?=$donnees['firstName']?><br>
-            <b>Date de naissance </b> : <?=$donnees['birthDate']?><br>
+            <b>Nom</b> : <?= $donnees['lastName'] ?><br>
+            <b>Prenom</b> : <?= $donnees['firstName'] ?><br>
+            <b>Date de naissance </b> : <?= $donnees['birthDate'] ?><br>
             <?php
             if ($donnees['card'] == 1) {
             ?>
                 <b>Carte de fidélité</b> : OUI <br>
-                <b>Numéro de carte</b> : <?=$donnees['cardNumber']?><br>
+                <b>Numéro de carte</b> : <?= $donnees['cardNumber'] ?><br>
             <?php
-            }else {
+            } else {
             ?>
                 <b>Carte de fidélité</b> : NON <br>
             <?php
