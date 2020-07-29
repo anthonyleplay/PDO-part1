@@ -10,7 +10,14 @@ try {
 // Si tout va bien, on peut continuer
 
 // On récupère tout le contenu de la table
-$reponse = $bdd->query('SELECT * FROM `clients` ');
+$reponse = $bdd->query(
+    'SELECT `clients`.`firstName`, `clients`.`lastName`, `clients`.`birthDate`, `clients`.`card`, `clients`.`cardNumber`, `cardtypes`.`id`
+    FROM `clients`
+    INNER JOIN `cards` 
+    ON `clients`.`cardNumber` = `cards`.`cardNumber`
+    INNER JOIN `cardtypes`
+    ON `cards`.`cardTypesId` = `cardtypes`.`id`
+    ');
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +38,7 @@ $reponse = $bdd->query('SELECT * FROM `clients` ');
             <b>Prenom</b> : <?= $donnees['firstName'] ?><br>
             <b>Date de naissance </b> : <?= $donnees['birthDate'] ?><br>
             <?php
-            if ($donnees['card'] == 1) {
+            if ($donnees['id'] == 1) {
             ?>
                 <b>Carte de fidélité</b> : OUI <br>
                 <b>Numéro de carte</b> : <?= $donnees['cardNumber'] ?><br>
@@ -45,6 +52,7 @@ $reponse = $bdd->query('SELECT * FROM `clients` ');
         </p>
     <?php
     };
+    $reponse->closeCursor();
     ?>
 
 </body>
