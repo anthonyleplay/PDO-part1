@@ -10,7 +10,7 @@
 // Si tout va bien, on peut continuer
 
 // On récupère tout le contenu de la table
-$reponse = $bdd->query('SELECT * FROM `showtypes`');
+$reponse = $bdd->query('SELECT `type` FROM `showtypes`');
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +22,14 @@ $reponse = $bdd->query('SELECT * FROM `showtypes`');
 </head>
 <body>
     <?php
+
     while($donnees = $reponse->fetch()){
     ?>
         <p><?=$donnees['type']?></p>
     <?php
     };
+    $reponse->closeCursor();
     ?>
+    
 </body>
 </html>

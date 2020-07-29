@@ -10,7 +10,7 @@ try {
 // Si tout va bien, on peut continuer
 
 // On récupère tout le contenu de la table
-$reponse = $bdd->query('SELECT * FROM `shows` ORDER BY `title`');
+$reponse = $bdd->query('SELECT `title`, `performer`, `date`, `startTime` FROM `shows` ORDER BY `title`');
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +31,7 @@ $reponse = $bdd->query('SELECT * FROM `shows` ORDER BY `title`');
         </p>
     <?php
     };
+    $reponse->closeCursor();
     ?>
 </body>
 

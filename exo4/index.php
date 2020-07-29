@@ -10,7 +10,7 @@ try {
 // Si tout va bien, on peut continuer
 
 // On récupère tout le contenu de la table
-$reponse = $bdd->query('SELECT * FROM `clients` WHERE`card`');
+$reponse = $bdd->query('SELECT `firstName`, `lastName` FROM `clients` WHERE`card`');
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +29,7 @@ $reponse = $bdd->query('SELECT * FROM `clients` WHERE`card`');
         <p><?= $donnees['firstName'] . ' ' . $donnees['lastName'] ?></p>
     <?php
     };
+    $reponse->closeCursor();
     ?>
 </body>
 

@@ -10,7 +10,7 @@ try {
 // Si tout va bien, on peut continuer
 
 // On récupère tout le contenu de la table
-$reponse = $bdd->query('SELECT * FROM `clients` LIMIT 20');
+$reponse = $bdd->query('SELECT `firstName`, `lastName` FROM `clients` LIMIT 20');
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +29,7 @@ $reponse = $bdd->query('SELECT * FROM `clients` LIMIT 20');
         <p><?= $donnees['firstName'] ?> <?= $donnees['lastName'] ?></p>
     <?php
     };
+    $reponse->closeCursor();
     ?>
 </body>
 
